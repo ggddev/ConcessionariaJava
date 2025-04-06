@@ -65,7 +65,8 @@ public class main {
     String respSeeCar = in.nextLine();
 
     if(respSeeCar.equalsIgnoreCase("S")){
-        System.out.println(veiculosNossos);
+        ListaDeCarros carList = new ListaDeCarros(veiculosNossos);
+        System.out.println(carList.carrosList);
     }
 
     }
