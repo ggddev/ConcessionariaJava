@@ -14,7 +14,7 @@ public class main {
         System.out.println("Bem-vindo a Concessionária Java! Aqui você poderá comprar e vender veículos!");
 
         System.out.println("Informe se isso é uma [V]enda ou uma [C]ompra (V / C)");
-        String respUser = in.nextLine();
+        String respUser = in.nextLine().toUpperCase();
 
         do{
         switch(respUser){
