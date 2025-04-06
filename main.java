@@ -47,8 +47,7 @@ public class main {
                     if(valor < 10000){
                         sell.respostaDeVenda();
                         veiculosNossos.push(modelo);
-                    
-                }
+                    }
 
                 break;
             

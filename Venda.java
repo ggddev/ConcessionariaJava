@@ -4,7 +4,7 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class Venda implements VendaInterface{
+public class Venda{
     protected String nomeDono;
     protected Year anoFabricacao;
     protected String cor;
@@ -22,10 +22,5 @@ public class Venda implements VendaInterface{
             this.estado = estado;
             this.kms = kms;
             this.valor = valor;
-        }
-
-        @Override
-        public String respostaDeVenda(){
-            return "Compramos seu carro!";
         }
 }
