@@ -45,7 +45,7 @@ public class main {
                     Venda sell = new Venda(nomeDono, modelo, anoFabri, cor, newOrUse, valor);
 
                     if(valor < 10000){
-                        sell.respostaDeVenda();
+                        System.out.println("Compramos seu veículo!!!");
                         veiculosNossos.push(modelo);
                     }
 
