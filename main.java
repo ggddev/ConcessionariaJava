@@ -1,19 +1,22 @@
 package ConcessionariaJava;
 
 import java.time.Year;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
 public class main {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
-        Stack<String> veiculosNossos = new Stack<>();
-
+        String respContinue = "";
+        Stack<ArrayList<String>> veiculosNossos = new Stack<>();
+        ArrayList<String> modelo = new ArrayList<>();
         System.out.println("Bem-vindo a Concessionária Java! Aqui você poderá comprar e vender veículos!");
 
         System.out.println("Informe se isso é uma [V]enda ou uma [C]ompra (V / C)");
         String respUser = in.nextLine();
 
+        do{
         switch(respUser){
             case "C":
                 break;
@@ -22,7 +25,7 @@ public class main {
                 System.out.println("Informe o nome do dono do veículo: ");
                 String nomeDono = in.nextLine();
                 System.out.println("Informe o modelo do carro: ");
-                String modelo = in.nextLine();
+                modelo.add(in.nextLine());
                 System.out.println("Informe o ano de fabricação: ");
                 int anoFab = in.nextInt(); in.nextLine();
                 Year anoFabri = Year.of(anoFab);
@@ -34,17 +37,37 @@ public class main {
                 if(newOrUse == 1){
                     System.out.println("Informe quantos KMs o veículo já rodou: ");
                     int kms = in.nextInt();
-                } else {
+                } 
                     System.out.println("Informe o valor desejado pelo veículo: ");
                     float valor = in.nextFloat(); in.nextLine();
+
+                    
+                    Venda sell = new Venda(nomeDono, modelo, anoFabri, cor, newOrUse, valor);
+
+                    if(valor < 10000){
+                        sell.respostaDeVenda();
+                        veiculosNossos.push(modelo);
+                    
                 }
 
-                Venda sell = new Venda(nomeDono, modelo, anoFabri, cor, newOrUse, newOrUse);
                 break;
             
             default:
                 System.out.println("Opção inválida.");
                 break;
         }
+
+        System.out.println("Deseja inserir um novo registro? ");
+        respContinue = in.nextLine();
+
+    }while(respContinue.equalsIgnoreCase("S"));
+        
+    System.out.println("Deseja ver nosso estoque de veículos? (S / N)");
+    String respSeeCar = in.nextLine();
+
+    if(respSeeCar.equalsIgnoreCase("S")){
+        System.out.println(veiculosNossos);
+    }
+
     }
 }
