@@ -1,17 +1,20 @@
 package ConcessionariaJava;
 
 import java.time.Year;
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class Venda {
-    String nomeDono;
-    String modelo;
-    Year anoFabricacao;
-    String cor;
-    byte estado;
-    int kms;
-    float valor;
+    protected String nomeDono;
+    protected Year anoFabricacao;
+    protected String cor;
+    protected byte estado;
+    protected int kms;
+    protected float valor;
+    Stack<String> veiculosNossos = new Stack<>();
+    ArrayList<String> modelo = new ArrayList<>();
 
-        public Venda(String nomeDono, String modelo, Year anoFabricacao, String cor, byte estado, float valor){
+        public Venda(String nomeDono, ArrayList<String> modelo, Year anoFabricacao, String cor, byte estado, float valor){
             this.nomeDono = nomeDono;
             this.modelo = modelo;
             this.anoFabricacao = anoFabricacao;
@@ -21,5 +24,4 @@ public class Venda {
             this.valor = valor;
         }
 
-        public 
 }

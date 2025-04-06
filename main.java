@@ -1,8 +1,8 @@
 package ConcessionariaJava;
 
+import java.time.Year;
 import java.util.Scanner;
 import java.util.Stack;
-import java.time.Year;
 
 public class main {
     public static void main(String[] args){
@@ -10,10 +10,8 @@ public class main {
         Stack<String> veiculosNossos = new Stack<>();
 
         System.out.println("Bem-vindo a Concessionária Java! Aqui você poderá comprar e vender veículos!");
-        System.out.println("Por favor, nos diga seu nome: ");
-        String nomeDono = in.nextLine();
 
-        System.out.println("Informe se você deseja [C]omprar ou [V]ender um veículo: ");
+        System.out.println("Informe se isso é uma [V]enda ou uma [C]ompra (V / C)");
         String respUser = in.nextLine();
 
         switch(respUser){
@@ -21,6 +19,8 @@ public class main {
                 break;
             
             case "V":
+                System.out.println("Informe o nome do dono do veículo: ");
+                String nomeDono = in.nextLine();
                 System.out.println("Informe o modelo do carro: ");
                 String modelo = in.nextLine();
                 System.out.println("Informe o ano de fabricação: ");
