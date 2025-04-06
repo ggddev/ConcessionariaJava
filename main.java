@@ -10,6 +10,7 @@ public class main {
         Scanner in = new Scanner(System.in);
         String respContinue = "";
         Stack<ArrayList<String>> veiculosNossos = new Stack<>();
+        ListaDeCarros carList = new ListaDeCarros(veiculosNossos);
         ArrayList<String> modelo = new ArrayList<>();
         System.out.println("Bem-vindo a Concessionária Java! Aqui você poderá comprar e vender veículos!");
 
@@ -18,9 +19,6 @@ public class main {
 
         do{
         switch(respUser){
-            case "C":
-                break;
-            
             case "V":
                 System.out.println("Informe o nome do dono do veículo: ");
                 String nomeDono = in.nextLine();
@@ -47,7 +45,22 @@ public class main {
                     if(valor < 10000){
                         System.out.println("Compramos seu veículo!!!");
                         veiculosNossos.push(modelo);
+                    } else if(valor > 10000){
+                        System.out.println("Entraremos em negociação.");
                     }
+
+                break;
+
+                case "C":
+                System.out.println("Lista de carros que a concessionária possui: ");
+                System.out.println(carList.carrosList);
+
+                System.out.println("Informe o nome do carro que deseja: ");
+                String carroDesejado = in.nextLine();
+
+                if(carroDesejado.equals(carList)){
+                    System.out.println("");
+                }
 
                 break;
             
@@ -65,7 +78,6 @@ public class main {
     String respSeeCar = in.nextLine();
 
     if(respSeeCar.equalsIgnoreCase("S")){
-        ListaDeCarros carList = new ListaDeCarros(veiculosNossos);
         System.out.println(carList.carrosList);
     }
 
